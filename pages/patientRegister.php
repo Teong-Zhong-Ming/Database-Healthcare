@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <?php
     session_start();
     if (!isset($_SESSION['user_id'], $_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
@@ -7,36 +9,60 @@
     }
 
 ?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Best Medical</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="../assets/images/logo.png" alt="Best Medical Logo">
+            <h1>Best Medical</h1>
+        </div>
+    </header>
 
-<h1>Patient Register</h1>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="..\pages\adminPage.php">Back to Admin Dashboard</a></li>
+            <li><a href="index.php?page=logout" class="logout">Log Out</a></li>
+        </ul>
+    </aside>
+<main>
+<section id="create-account">
+    <h1>Patient Register</h1>
 
-<form method="post" action="">
-    <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name"><br>
-    <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"><br>
-    <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br>
-    <label for="age">Age:</label><br>
-        <input type="number" id="age" name="age"><br>
-    <label for="identification_number">Identification Number:</label><br>
-        <input type="text" id="identification_number" name="identification_number"><br>
-    <label for="contact_number">Contact Number:</label><br>
-        <input type="text" id="contact_number" name="contact_number"><br>
-    <label for="gender">Gender:</label><br>
-        <select id="gender" name="gender" required>
-            <option value="">-- Select Gender --</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="NTS">Prefer Not To Say</option>
-        </select><br>
-    <label for="address">Address:</label><br>
-        <input type="text" id="address" name="address"><br>
-    <label for="role">Role:</label><br>
-        <input type="text" id="role" name="role" value="Patient" readonly><br>
-    <button type="submit" name="registerbtn" value="registerbtn">Register</button>
-</form>
-
+    <form method="post" action="">
+        <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+        <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br>
+        <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age"><br>
+        <label for="identification_number">Identification Number:</label><br>
+            <input type="text" id="identification_number" name="identification_number"><br>
+        <label for="contact_number">Contact Number:</label><br>
+            <input type="text" id="contact_number" name="contact_number"><br>
+        <label for="gender">Gender:</label><br>
+            <select id="gender" name="gender" required>
+                <option value="">-- Select Gender --</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="NTS">Prefer Not To Say</option>
+            </select><br>
+        <label for="address">Address:</label><br>
+            <input type="text" id="address" name="address"><br>
+        <label for="role">Role:</label><br>
+            <input type="text" id="role" name="role" value="Patient" readonly><br>
+        <button type="submit" name="registerbtn" value="registerbtn">Register</button>
+    </form>
+</section>
+</main>
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registerbtn'])) {
@@ -106,3 +132,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registerbtn'])) {
     }
 }
 ?>
+</body>
+</html>
