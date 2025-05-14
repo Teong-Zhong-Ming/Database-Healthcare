@@ -34,7 +34,7 @@
     </aside>
 
     <!-- Main Content -->
-    <main>
+    <main class="with-sidebar">
         <section id="profile">
             <h2>Doctor Profile</h2>
             <div class="profile-card">

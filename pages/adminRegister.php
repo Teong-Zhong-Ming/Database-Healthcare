@@ -14,7 +14,7 @@
             <h1>Best Medical</h1>
         </div>
     </header>
-<main>
+<main class="with-sidebar">
     <section id="create-account">
         <h1>Admin Registration</h1>
             <form method="post" action="">

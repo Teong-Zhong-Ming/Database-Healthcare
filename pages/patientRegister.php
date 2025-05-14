@@ -31,34 +31,34 @@
             <li><a href="index.php?page=logout" class="logout">Log Out</a></li>
         </ul>
     </aside>
-<main>
+<main class="with-sidebar">
 <section id="create-account">
     <h1>Patient Register</h1>
 
     <form method="post" action="">
-        <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name"><br>
-        <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username"><br>
-        <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password"><br>
-        <label for="age">Age:</label><br>
-            <input type="number" id="age" name="age"><br>
-        <label for="identification_number">Identification Number:</label><br>
-            <input type="text" id="identification_number" name="identification_number"><br>
-        <label for="contact_number">Contact Number:</label><br>
-            <input type="text" id="contact_number" name="contact_number"><br>
-        <label for="gender">Gender:</label><br>
+        <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+        <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        <label for="age">Age:</label>
+            <input type="number" id="age" name="age">
+        <label for="identification_number">Identification Number:</label>
+            <input type="text" id="identification_number" name="identification_number">
+        <label for="contact_number">Contact Number:</label>
+            <input type="text" id="contact_number" name="contact_number">
+        <label for="gender">Gender:</label>
             <select id="gender" name="gender" required>
                 <option value="">-- Select Gender --</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="NTS">Prefer Not To Say</option>
-            </select><br>
-        <label for="address">Address:</label><br>
-            <input type="text" id="address" name="address"><br>
-        <label for="role">Role:</label><br>
-            <input type="text" id="role" name="role" value="Patient" readonly><br>
+            </select>
+        <label for="address">Address:</label>
+            <input type="text" id="address" name="address">
+        <label for="role">Role:</label>
+            <input type="text" id="role" name="role" value="Patient" readonly>
         <button type="submit" name="registerbtn" value="registerbtn">Register</button>
     </form>
 </section>

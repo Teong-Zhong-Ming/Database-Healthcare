@@ -11,5 +11,8 @@
         <a href="index.php?page=patientRegister">Patient Register</a>
         <a href="index.php?page=doctorRegister">Doctor Register(Test only)</a>
         <a href="index.php?page=adminRegister">Admin Register(Test only)</a>
+        <a href="index.php?page=adminPage">Admin Page(Test only)</a>
+        <a href="index.php?page=doctorPage">Doctor Page(Test only)</a>
+        <a href="index.php?page=patientPage">Patient Page(Test only)</a>
     </nav>
 <hr>

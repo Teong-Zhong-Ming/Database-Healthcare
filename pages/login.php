@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Best Medical</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <?php 
     session_start(); // Must be at the very top
 
@@ -7,14 +15,31 @@
         exit;
     }
 ?>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="../assets/images/logo.png" alt="Best Medical Logo">
+            <h1>Best Medical</h1>
+        </div>
+    </header>
 
-<h1>Login</h1>
+    <!-- Main Content -->
+    <main class="login-page">
+        <section id="login-form">
+            <h2>Login</h2>
+            <form action="#" method="post">
+                <label for="user">Email:</label>
+                <input type="user" id="user" name="user" placeholder="Enter name user" required>
 
-<form method='post'>
-    <input type='text' name='user'>
-    <input type='password' name='pass'>
-    <button>Login</button>
-</form>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="pass" placeholder="Enter password" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </section>
+    </main>
+
 
 <?php
     include __DIR__ . '/../includes/db.php';
@@ -59,3 +84,5 @@
         }
     }
 ?>
+</body>
+</html>

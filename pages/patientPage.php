@@ -35,7 +35,7 @@
     </aside>
 
     <!-- Main Content -->
-    <main>
+    <main class="with-sidebar">
         <section id="profile">
             <h2>Patient Profile</h2>
             <div class="profile-card">

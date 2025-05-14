@@ -23,36 +23,35 @@
         </div>
     </header>
 <!-- Main Content -->
-    <main>
+    <main class="with-sidebar">
         <section id="create-account">
         <h1>Doctor Register</h1>
 
         <form method="post" action="">
-            <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name" required><br>
-            <label for="username">Username:</label><br>
-                <input type="text" id="username" name="username" required><br>
-            <label for="password">Password:</label><br>
-                <input type="password" id="password" name="password" required><br>
-            <label for="age">Age:</label><br>
-                <input type="number" id="age" name="age" required><br>
-            <label for="identification_number">Identification_number:</label><br>
-                <input type="text" id="identification_number" name="identification_number" required><br>
-            <label for="contact_number">Contact Number:</label><br>
-                <input type="text" id="contact_number" name="contact_number" required><br>
-            <label for="gender">Gender:</label><br>
+            <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            <label for="identification_number">Identification_number:</label>
+                <input type="text" id="identification_number" name="identification_number" required>
+            <label for="contact_number">Contact Number:</label>
+                <input type="text" id="contact_number" name="contact_number" required>
+            <label for="gender">Gender:</label>
                 <select id="gender" name="gender" required>
                     <option value="">-- Select Gender --</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="NTS">Prefer Not To Say</option>
-                </select><br>
-            <label for="address">Address:</label><br>
-                <input type="text" id="address" name="address" required><br>
-            <label for="specialization">Specialization:</label><br>
-                <input type="text" id="specialization" name="specialization" required><br>
-            <label for="role">Role:</label><br>
-                <input type="text" id="role" name="role" value="Doctor" readonly><br>
+                </select>
+            <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+                <input type="text" id="specialization" name="specialization" required>
+            <label for="role">Role:</label>
+                <input type="text" id="role" name="role" value="Doctor" readonly>
             <button type="submit" name="registerbtn" value="registerbtn">Register</button>
         </form>
         </section>
