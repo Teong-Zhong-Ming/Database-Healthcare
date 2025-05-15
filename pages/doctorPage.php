@@ -30,6 +30,7 @@
     <aside class="sidebar">
         <ul>
             <li><a href="index.php?page=medical_records">Edit Medical Record</a></li>
+            <li><a href="index.php?page=addMediRecord">Add Medical Record</a></li>
             <li><a href="index.php?page=logout" class="logout">Log Out</a></li>
         </ul>
     </aside>
@@ -74,6 +75,7 @@
                         <th>Date</th>
                         <th>Description</th>
                         <th>Diagnosis</th>
+                        <th>Note</th>
                     </tr>
                 </thead>
                 <tbody id="modal-body">
@@ -104,12 +106,12 @@
                 // Mock data for demonstration
                 const records = {
                     "P001": [
-                        { date: "2023-01-15", description: "Annual Checkup", diagnosis: "Healthy" },
-                        { date: "2023-02-20", description: "Flu Symptoms", diagnosis: "Influenza" }
+                        { date: "2023-01-15", description: "Annual Checkup", diagnosis: "Healthy", note: "good" },
+                        { date: "2023-02-20", description: "Flu Symptoms", diagnosis: "Influenza", note: "bad" }
                     ],
                     "P002": [
-                        { date: "2023-03-10", description: "Routine Blood Test", diagnosis: "Normal" },
-                        { date: "2023-04-05", description: "Allergy Test", diagnosis: "Allergic to Pollen" }
+                        { date: "2023-03-10", description: "Routine Blood Test", diagnosis: "Normal", note: "good" },
+                        { date: "2023-04-05", description: "Allergy Test", diagnosis: "Allergic to Pollen", note: "bad" }
                     ]
                 };
 
@@ -121,6 +123,7 @@
                                     <td>${record.date}</td>
                                     <td>${record.description}</td>
                                     <td>${record.diagnosis}</td>
+                                    <td>${record.note}</td>
                                  </tr>`;
                     modalBody.insertAdjacentHTML("beforeend", row);
                 });

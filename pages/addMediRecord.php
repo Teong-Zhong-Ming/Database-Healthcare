@@ -23,8 +23,8 @@
     </aside>
     <!-- Main Content -->
     <main class="with-sidebar">
-        <section id="edit-medical-record">
-            <h2>Edit Medical Record</h2>
+        <section id="add-medical-record">
+            <h2>Add Medical Record</h2>
             <form action="#" method="post">
                 <!-- Patient Name Dropdown -->
                 <label for="patient-name">Patient ID:</label>
@@ -52,7 +52,7 @@
                 <textarea id="notes" name="notes" rows="6" placeholder="Add additional notes"></textarea>
 
                 <!-- Submit Button -->
-                <button type="submit">Save Changes</button>
+                <button type="submit">Save Record</button>
             </form>
         </section>
     </main>
