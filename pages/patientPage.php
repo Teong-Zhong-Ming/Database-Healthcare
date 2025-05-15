@@ -5,7 +5,7 @@
 <?php 
     session_start();
     if (!isset($_SESSION['username'])) {
-        header("Location: login.php");
+        header("Location: index.php?page=login");
         exit;
     }
 
@@ -72,9 +72,5 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 Best Medical. All rights reserved.</p>
-    </footer>
 </body>
 </html>

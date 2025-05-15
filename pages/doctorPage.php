@@ -3,12 +3,13 @@
 <h1>Doctor Page</h1>
 
 <?php 
+/*
     session_start();
     if (!isset($_SESSION['username'])) {
-        header("Location: login.php");
+        header("Location: index.php?page=login");
         exit;
     }
-    
+    */
 ?>
 
 <head>
@@ -29,6 +30,7 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <ul>
+            <li><a href="index.php?page=medical_records">Edit Medical Record</a></li>
             <li><a href="index.php?page=logout" class="logout">Log Out</a></li>
         </ul>
     </aside>
@@ -82,10 +84,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 Best Medical. All rights reserved.</p>
-    </footer>
 
     <script>
         // Modal functionality

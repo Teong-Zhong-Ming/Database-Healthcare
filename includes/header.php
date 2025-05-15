@@ -14,5 +14,6 @@
         <a href="index.php?page=adminPage">Admin Page(Test only)</a>
         <a href="index.php?page=doctorPage">Doctor Page(Test only)</a>
         <a href="index.php?page=patientPage">Patient Page(Test only)</a>
+        <a href="index.php?page=medical_records">Medical record</a>
     </nav>
 <hr>

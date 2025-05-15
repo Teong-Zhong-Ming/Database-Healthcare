@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-    session_start();
-    if (!isset($_SESSION['user_id'], $_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
-        $user_id = $_SESSION['user_id'];
-        header("Location: ../index.php?page=home");
-        exit;
-    }
 
-?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +19,7 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <ul>
-            <li><a href="..\pages\adminPage.php">Back to Admin Dashboard</a></li>
+            <li><a href="index.php?page=adminPage">Back to Admin Dashboard</a></li>
             <li><a href="index.php?page=logout" class="logout">Log Out</a></li>
         </ul>
     </aside>

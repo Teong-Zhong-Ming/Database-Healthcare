@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+/*
     session_start();
     if (!isset($_SESSION['user_id'], $_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
         header("Location: ../index.php?page=home");
         exit;
-    }
+    }*/
     
     echo "<h1>Welcome, " . htmlspecialchars($_SESSION['username']) . "</h1>";
     echo "<p>Your role is: " . htmlspecialchars($_SESSION['role']) . "</p>";
@@ -37,7 +38,7 @@
         <ul>
             <li><a href="index.php?page=patientRegister">Register Patient</a></li>
             <li><a href="index.php?page=doctorRegister">Register Doctor</a></li>
-            <li><a href="index.php?page=login" class="logout">Log Out</a></li>
+            <li><a href="index.php?page=logout" class="logout">Log Out</a></li>
         </ul>
     </aside>
 
@@ -122,9 +123,5 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 Best Medical. All rights reserved.</p>
-    </footer>
 </body>
 </html>
