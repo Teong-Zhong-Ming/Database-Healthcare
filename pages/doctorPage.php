@@ -1,15 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php 
-/*
+
     session_start();
-    if (!isset($_SESSION['username'])) {
-        header("Location: index.php?page=login");
+    if (!isset($_SESSION['username']) || ($_SESSION['role'] !== 'Doctor')) {
+        echo '<script>
+                alert("You need to login as a DOCTOR to access this page");
+                window.location.href = "/index.php?page=login";
+              </script>';
         exit;
     }
-    */
+
+    $serverName = "localhost";
+    $connectionInfo = array(
+        "Database" => "Healthcare_Database",
+        "UID" => "doctorUser",
+        "PWD" => "doctor_password" 
+    );
+
+    $conn = sqlsrv_connect($serverName, $connectionInfo);
+    if (!$conn) {
+        die("DB connection failed:<br>" . print_r(sqlsrv_errors(), true));
+    }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<h1>Doctor Page</h1>
+
 
 <head>
     <meta charset="UTF-8">

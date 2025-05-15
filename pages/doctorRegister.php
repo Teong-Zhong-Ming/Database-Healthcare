@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+    session_start();
+    if (!isset($_SESSION['username']) || ($_SESSION['role'] !== 'Admin')) {
+        echo '<script>
+                alert("You need to login as a ADMIN to access this page");
+                window.location.href = "/index.php?page=login";
+              </script>';
+        exit;
+    }
 
+    $serverName = "localhost";
+    $connectionInfo = array(
+        "Database" => "Healthcare_Database",
+        "UID" => "adminUser",
+        "PWD" => "admin_password" 
+    );
+
+    $conn = sqlsrv_connect($serverName, $connectionInfo);
+    if (!$conn) {
+        die("DB connection failed:<br>" . print_r(sqlsrv_errors(), true));
+    }
+
+    $user_id = $_SESSION['user_id'];
+
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +39,6 @@
             <h1>Best Medical</h1>
         </div>
     </header>
-
     <!-- Sidebar -->
     <aside class="sidebar">
         <ul>
@@ -50,6 +73,7 @@
                 </select>
             <label for="address">Address:</label>
                 <input type="text" id="address" name="address" required>
+            <label for="specialization">Specialization:</label>
                 <input type="text" id="specialization" name="specialization" required>
             <label for="role">Role:</label>
                 <input type="text" id="role" name="role" value="Doctor" readonly>
@@ -60,7 +84,22 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registerbtn'])) {
 
-    include __DIR__ . '/../includes/db.php';
+    #include __DIR__ . '/../includes/db.php';
+
+    // get admin id
+    $sqlGetAdmin = "SELECT Admin_ID FROM Admin WHERE User_ID = ?";
+    $paramsGetAdmin = array($user_id);
+    $stmtGetAdmin = sqlsrv_query($conn, $sqlGetAdmin, $paramsGetAdmin);
+    
+    if ($stmtGetAdmin === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+    
+    if (sqlsrv_fetch($stmtGetAdmin)) {
+        $admin_id = sqlsrv_get_field($stmtGetAdmin, 0);
+    } else {
+        die("Admin not found in Admin table");
+    }
 
     // User info
     $name = $_POST['name'];
@@ -102,9 +141,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registerbtn'])) {
         }
 
         // Insert into Doctor table
-        $sqlDoctor = "INSERT INTO Doctor (User_ID, Identification_number, Contact_number, Gender, Address, Specialization) 
-                     VALUES (?, ?, ?, ?, ?, ?)";
-        $paramsDoctor = array($userID, $identification_number, $contact_number, $gender, $address, $specialization);
+        $sqlDoctor = "INSERT INTO Doctor (User_ID, Identification_number, Contact_number, Gender, Address, Specialization, Created_By_Admin_ID) 
+                     VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $paramsDoctor = array($userID, $identification_number, $contact_number, $gender, $address, $specialization, $admin_id);
         $stmtDoctor = sqlsrv_query($conn, $sqlDoctor, $paramsDoctor);
 
         if ($stmtDoctor === false) {
