@@ -14,6 +14,13 @@
             <h1>Best Medical</h1>
         </div>
     </header>
+     <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="index.php?page=adminPage">Back to Admin Dashboard</a></li>
+            <li><a href="index.php?page=logout" class="logout">Log Out</a></li>
+        </ul>
+    </aside>
 <main class="with-sidebar">
     <section id="create-account">
         <h1>Admin Registration</h1>
@@ -97,9 +104,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registerbtn'])) {
 }
 ?>
 
-<!-- Footer -->
-    <footer>
-        <p>&copy; 2023 Best Medical. All rights reserved.</p>
-    </footer>
+
 </body>
 </html>

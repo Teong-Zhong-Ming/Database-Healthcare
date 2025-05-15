@@ -123,9 +123,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registerbtn'])) {
 }
 ?>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 Best Medical. All rights reserved.</p>
-    </footer>
+
 </body>
 </html>
