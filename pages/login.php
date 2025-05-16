@@ -1,3 +1,13 @@
+<?php 
+    session_start(); // Must be at the very top
+
+    // Redirect if already logged in
+    if (isset($_SESSION['user_id'])) {
+        header("Location: index.php");
+        exit;
+    } 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,15 +16,6 @@
     <title>Login - Best Medical</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<?php 
-    session_start(); // Must be at the very top
-
-    // Redirect if already logged in
-    if (isset($_SESSION['user_id'])) {
-        header("Location: index.php");
-        exit;
-    }
-?>
 <body>
     <!-- Header -->
     <header>
@@ -63,7 +64,8 @@
             $_SESSION['username'] = $user;
             $_SESSION['user_id'] = $row['User_ID']; // Assuming UserID is the first field
             $_SESSION['role'] = $row['Role']; // Assuming role is the second field
-            
+            sqlsrv_close($conn);
+
             // Redirect based on role
             if ($row['Role'] == 'Doctor') {
                 header("Location: /index.php?page=doctorPage");

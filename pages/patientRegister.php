@@ -1,5 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+    session_start();
+    if (!isset($_SESSION['username']) || ($_SESSION['role'] !== 'Admin')) {
+        echo '<script>
+                alert("You need to login as a ADMIN to access this page");
+                window.location.href = "/index.php?page=login";
+              </script>';
+        exit;
+    }
+
+    $serverName = "localhost";
+    $connectionInfo = array(
+        "Database" => "Healthcare_Database",
+        "UID" => "adminUser",
+        "PWD" => "admin_password" 
+    );
+
+    $conn = sqlsrv_connect($serverName, $connectionInfo);
+    if (!$conn) {
+        die("DB connection failed:<br>" . print_r(sqlsrv_errors(), true));
+    }
+
+    $user_id = $_SESSION['user_id'];
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -59,7 +83,7 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registerbtn'])) {
 
-    include __DIR__ . '/../includes/db.php';
+    #include __DIR__ . '/../includes/db.php';
 
     // get admin id
     $sqlGetAdmin = "SELECT Admin_ID FROM Admin WHERE User_ID = ?";
@@ -113,8 +137,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registerbtn'])) {
     }
 
     // Insert into Patient table
-    $sqlPatient = "INSERT INTO Patient (User_ID, Identification_number, Contact_number, Gender, Address, First_visit) VALUES (?, ?, ?, ?, ?, ?)";
-    $paramsPatient = array($userID, $identification_number, $contact_number, $gender, $address, $first_visit);
+    $sqlPatient = "INSERT INTO Patient (User_ID, Identification_number, Contact_number, Gender, Address, First_visit, Created_By_Admin_ID) 
+                   VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $paramsPatient = array($userID, $identification_number, $contact_number, $gender, $address, $first_visit, $admin_id);
     $stmtPatient = sqlsrv_query($conn, $sqlPatient, $paramsPatient);
 
     if ($stmtPatient === false) {
