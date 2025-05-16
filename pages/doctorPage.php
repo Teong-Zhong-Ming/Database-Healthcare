@@ -24,8 +24,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<h1>Doctor Page</h1>
-
 
 <head>
     <meta charset="UTF-8">

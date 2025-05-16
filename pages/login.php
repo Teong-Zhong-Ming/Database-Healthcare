@@ -22,6 +22,9 @@
         <div class="logo">
             <img src="../assets/images/logo.png" alt="Best Medical Logo">
             <h1>Best Medical</h1>
+            <?php
+            include("includes/header.php");
+            ?>
         </div>
     </header>
 

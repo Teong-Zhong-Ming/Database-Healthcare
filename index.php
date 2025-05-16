@@ -17,7 +17,7 @@
 $page = $_GET['page'] ?? 'home';
 $page = preg_replace('/[^a-zA-Z0-9_-]/', '', $page); // sanitize
 
-include("includes/header.php");
+//include("includes/header.php");
 
 $pagePath = "pages/{$page}.php";
 if (file_exists($pagePath)) {
