@@ -3,7 +3,9 @@
 
     // Redirect if already logged in
     if (isset($_SESSION['user_id'])) {
-        header("Location: index.php");
+        echo '<script>
+                alert("You are already logged in.");
+              </script>';
         exit;
     } 
 ?>
