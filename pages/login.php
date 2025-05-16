@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Best Medical</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
     <!-- Header -->
@@ -30,7 +30,7 @@
         <section id="login-form">
             <h2>Login</h2>
             <form action="#" method="post">
-                <label for="user">Email:</label>
+                <label for="user">Username</label>
                 <input type="user" id="user" name="user" placeholder="Enter name user" required>
 
                 <label for="password">Password:</label>
