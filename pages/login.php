@@ -5,6 +5,7 @@
     if (isset($_SESSION['user_id'])) {
         echo '<script>
                 alert("You are already logged in.");
+                window.location.href = "/index.php?page=logout";
               </script>';
         exit;
     } 

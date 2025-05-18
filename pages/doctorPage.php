@@ -46,18 +46,14 @@
 
     ####################
 
-    $sqlMedicalRecords = "Select u_patient.Name AS Patient_Name,
-                                 p.Patient_ID,
-                                 m.Medical_Record_ID,
-                                 m.Visit_Date,
-                                 m.Diagnosis,
-                                 m.Prescription,
-                                 m.Notes
-                                 From Medical_Record m
-                                 Join Patient p On m.Patient_ID = p.Patient_ID
-                                 Join [User] u_patient On p.User_ID = u_patient.User_ID
-                                 Where m.Doctor_ID = ?
-                                 Order By m.Visit_Date DESC";
+    $sqlMedicalRecords = "SELECT DISTINCT 
+                          u_patient.Name AS Patient_Name,
+                          p.Patient_ID
+                          FROM Medical_Record m
+                          JOIN Patient p ON m.Patient_ID = p.Patient_ID
+                          JOIN [User] u_patient ON p.User_ID = u_patient.User_ID
+                          WHERE m.Doctor_ID = ?
+                          ORDER BY u_patient.Name";
     $paramsMedicalRecords = array($doctor_id);
     $stmtMedicalRecords = sqlsrv_query($conn, $sqlMedicalRecords, $paramsMedicalRecords);
     if ($stmtMedicalRecords === false) {
