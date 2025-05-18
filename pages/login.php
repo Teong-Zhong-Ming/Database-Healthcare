@@ -54,7 +54,7 @@
         $user = $_POST['user'];
         $pass = $_POST['pass'];
 
-        $sql = "SELECT * FROM [User] WHERE username = ?";
+        $sql = "SELECT User_ID, Age, Username, Name, Password_Hashed, Role FROM [User] WHERE username = ?";
         $params = array($user);
         $stmt = sqlsrv_query($conn, $sql, $params);
 

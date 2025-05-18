@@ -88,7 +88,6 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <ul>
-            <li><a href="index.php?page=medical_records">Edit Medical Record</a></li>
             <li><a href="index.php?page=addMediRecord">Add Medical Record</a></li>
             <li><a href="index.php?page=logout" class="logout">Log Out</a></li>
         </ul>

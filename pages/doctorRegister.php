@@ -152,7 +152,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registerbtn'])) {
 
         // Commit transaction if both inserts succeeded
         sqlsrv_commit($conn);
-        echo "<p class='success'>✅ Doctor registration successful!</p>";
+        echo "<script>
+                    alert('✅ Doctor registration successful!');
+                    window.location.href = 'index.php?page=adminPage';
+                </script>";
         
     } catch (Exception $e) {
         // Rollback transaction on error

@@ -145,8 +145,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registerbtn'])) {
     if ($stmtPatient === false) {
         die(print_r(sqlsrv_errors(), true));
     } else {
-        echo "<p>✅ Patient registration successful!</p>";
-    }
+        echo "<script>
+                    alert('✅ Patient registration successful!');
+                    window.location.href = 'index.php?page=adminPage';
+                </script>";
+    } 
 }
 ?>
 </body>
